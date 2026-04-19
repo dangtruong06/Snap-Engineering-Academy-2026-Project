@@ -644,21 +644,35 @@ function updateTraits(){
 
       //get key value out of trait counter object
       const traitString = Object.entries(traitCounter)
-      .map(([trait,num]) => `${trait}: ${num}`) //.map runs once every pair to turn it into a string
-      .join(' | ') 
+      .map(([trait,num]) => {
+        //depending on trait count, will change text color
+        const color = getTraitColors(num);
+        return `${trait}: <span style="color: ${color}">${num} </span>`;
+        })//.map runs once every pair to turn it into a string
+        .join(' | ') 
       
       
       if(traitString == ''){
-        traitDisplay.textContent = 'Active Traits: '
+        traitDisplay.innerHTML = 'Active Traits: '
       }
       else{
-        traitDisplay.textContent = `Active Traits: ${traitString}`
+        traitDisplay.innerHTML = `Active Traits: ${traitString}`
       }
     })
   })
 
 
 }
+
+//get different colors to highlight trait combos
+function getTraitColors(num){
+  if(num == 1) {return 'gray'}
+  if(num == 2){ return 'lightblue' }
+  if(num == 3){ return 'green'}
+  if(num == 4){ return 'purple'}
+  if(num > 4) { return 'gold'}
+  
+} 
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", function(){
