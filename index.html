@@ -1,31 +1,119 @@
-<!doctype html>
-<html>
-  <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
-  </head>
+  <!doctype html>
+  <html>
+    <head>
+      <title>Teamfight Tactics | Riot Games</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <script type="text/javascript" src="scripts.js"></script>
+    </head>
 
-  <body>
-    <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
-    </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+    <body>
+      <header class="main-header">
+        <h1 class="title">TFT Set 15 K.O Coliseum</h1>
+      </header>
+      
+      <h1>Check out champion stats below, then scroll down and match as many trait combinations as you can!</h1>
+      <h1>Hint: Use (filters) to see team synergies/traits</h1>
+      <div class="filter-container">
+  
+        <button id="filter-toggle">Filters</button>
+
+        <div id="filter-panel" class="hidden">
+          <label for="cost-select">Cost:</label>
+          <select id="cost-select">
+            <option value="">All</option>
+            <option value="1">1 Cost</option>
+            <option value="2">2 Cost</option>
+            <option value="3">3 Cost</option>
+            <option value="4">4 Cost</option>
+            <option value="5">5 Cost</option>
+          </select>
+
+          <label for="trait-select">Traits:</label>
+          <select name="" id="trait-select">
+            <option value="">All</option>
+            <option value="Bastion">Bastion</option>
+            <option value="Battle Academia">Battle Academia</option>
+            <option value="Crystal Gambit">Crystal Gambit</option>
+            <option value="Duelist">Duelist</option>
+            <option value="Edgelord">Edgelord</option>
+            <option value="Executioner">Executioner</option>
+            <option value="Heavyweight">Heavyweight</option>
+            <option value="Juggernaut">Juggernaut</option>
+            <option value="Luchador">Luchador</option>
+            <option value="Mentor">Mentor</option>
+            <option value="Mighty Mech">Mighty Mech</option>
+            <option value="Monster Trainer">Monster Trainer</option>
+            <option value="Prodigy">Prodigy</option>
+            <option value="Protector">Protector</option>
+            <option value="Sniper">Sniper</option>
+            <option value="Sorcerer">Sorcerer</option>
+            <option value="Soul Fighter">Soul Fighter</option>
+            <option value="Star Guardian">Star Guardian</option>
+            <option value="Strategist">Strategist</option>
+            <option value="Supreme Cells">Srpreme Cells</option>
+            <option value="Wraith">Wraith</option>
+            <option value="The Crew">The Crew</option>
+          </select>
+
+          <label for="type-select">Type:</label>
+          <select id="type-select">
+            <option value="">All</option>
+            <option value="Mage">Mage</option>
+            <option value="Frontline Fighter">Frontline Fighter</option>
+            <option value="Backline Carry">Backline Carry</option>
+            <option value="Mage Assassin">Mage Assassin</option>
+            <option value="Assassin">Assassin</option>
+            <option value="Frontline Tank">Frontline Tank</option>
+
+          </select>
+        </div>
+        <button id="apply-filters" class="hidden">Apply</button>
+        
+
+
+        <button onclick="sortByCost()">Sort By Cost</button>
+        <button onclick="reset()">Reset</button>
+
+        
       </div>
-    </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
-    </div>
-  </body>
-</html>
+
+      <div id="card-container"></div>
+      <div class="card" style="display: none">
+        <div class="card-content">
+          <h1>TFT Champions</h1>
+          <img src=""/>
+          <ul>
+            <li>Bullet Point 1</li>
+            <li>Bullet Point 2</li>
+            <li>Bullet Point 3</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <br><br><br>
+      <div id="builder-title">
+        <h1>Team Builder</h1>
+        <a href="images/example-team.png" target="_blank">Click here to see an example team</a>
+      </div>
+
+
+      <div id="team-builder">
+        <div id="left-panel">
+          <h1>Search for champion's name, then click card to add to team builder</h1>
+          <input type="text" id="search-bar" placeholder="Search for a champion: ">
+          <div id="search-result"></div>
+        </div>
+
+        <div id="right-panel">
+          <h1>Active Traits: </h1>
+          <div id="team-slot"></div>
+        </div>
+      </div>
+
+
+
+
+    </body>
+  </html>
